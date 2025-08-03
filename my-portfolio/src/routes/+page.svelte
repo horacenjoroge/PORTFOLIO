@@ -66,35 +66,35 @@
 	const projects = [
 		{
 			id: 1,
-			title: 'Event Ticketing Platform',
-			description: 'Microservices platform with CI/CD and monitoring',
-			tech: ['NestJS', 'Docker', 'PostgreSQL', 'K8s'],
-			github: 'https://github.com/yourusername/event-ticketing',
-			demo: '/projects/event-ticketing'
+			title: 'Trainly - Fitness Companion',
+			description: 'Cross-platform fitness tracking app with social features and emergency safety',
+			tech: ['React Native', 'Expo', 'Node.js', 'MongoDB'],
+			github: 'https://github.com/horacenjoroge/trainly',
+			demo: '/projects/1'
 		},
 		{
 			id: 2,
-			title: 'Real-time Chat App',
-			description: 'Scalable chat with WebSocket and Redis',
-			tech: ['Svelte', 'Node.js', 'Socket.io', 'Redis'],
-			github: 'https://github.com/yourusername/chat-app',
-			demo: '/projects/chat-app'
+			title: 'Event Ticketing Platform',
+			description: 'Enterprise-grade microservices platform with CI/CD and monitoring',
+			tech: ['NestJS', 'PostgreSQL', 'Docker', 'K8s'],
+			github: 'https://github.com/horacenjoroge/Event-ticketing-backend',
+			demo: '/projects/2'
 		},
 		{
 			id: 3,
 			title: 'E-commerce API',
-			description: 'RESTful API with payment processing',
-			tech: ['TypeScript', 'Express', 'MongoDB'],
+			description: 'RESTful API with payment processing and inventory management',
+			tech: ['TypeScript', 'Express', 'MongoDB', 'Stripe'],
 			github: 'https://github.com/yourusername/ecommerce-api',
-			demo: '/projects/ecommerce-api'
+			demo: '/projects/3'
 		},
 		{
 			id: 4,
-			title: 'Task Management',
-			description: 'Productivity app with drag-and-drop',
-			tech: ['React', 'Node.js', 'PostgreSQL'],
+			title: 'Task Management App',
+			description: 'Productivity app with drag-and-drop functionality',
+			tech: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
 			github: 'https://github.com/yourusername/task-app',
-			demo: '/projects/task-app'
+			demo: '/projects/4'
 		}
 	];
 
@@ -107,7 +107,7 @@
 <svelte:head>
 	<title>{name} - {title}</title>
 	<meta name="description" content="{name} is a {title} passionate about building amazing web applications" />
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </svelte:head>
 
 <!-- Dark mode toggle -->
@@ -140,7 +140,7 @@
 					<!-- Profile Image -->
 					<div class="relative flex-shrink-0">
 						<img 
-							src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=140&h=140&fit=crop&crop=face" 
+							src="https://raw.githubusercontent.com/horacenjoroge/project-images/main/horace/IMG_2651%20(1).jpg" 
 							alt="Profile" 
 							class="w-28 h-28 rounded-full object-cover border-4 border-white dark:border-gray-700 shadow-xl"
 						/>
@@ -299,7 +299,7 @@
 		scroll-behavior: smooth;
 		overflow: hidden;
 		height: 100%;
-		font-family: 'Inter', sans-serif;
+		font-family: 'Poppins', sans-serif;
 	}
 	
 	:global(.dark) {
@@ -307,7 +307,7 @@
 	}
 	
 	.font-serif {
-		font-family: 'Crimson Text', serif;
+		font-family: 'Source Serif Pro', serif;
 	}
 	
 	.line-clamp-1 {
