@@ -6,10 +6,10 @@
 	let name = 'Horace Njoroge';
 	let title = 'Software Engineer';
 	let status = 'building cool stuff';
-	let email = 'your.email@example.com';
-	let linkedin = 'https://linkedin.com/in/yourprofile';
-	let github = 'https://github.com/yourusername';
-	let bio = 'Passionate full-stack developer with 5+ years of experience building scalable web applications. I love creating elegant solutions to complex problems and working with cutting-edge technologies. When I\'m not coding, you can find me exploring new frameworks, contributing to open source, or mentoring upcoming developers.';
+	let email = 'horacenjorge.gmail.com';
+	let linkedin = 'https://www.linkedin.com/in/horacenjoroge/';
+	let github = 'https://github.com/horacenjoroge';
+	let bio = 'Passionate full-stack developer with 3 years of experience building scalable web applications. I love creating elegant solutions to complex problems and working with cutting-edge technologies. When I\'m not coding, you can find me exploring new frameworks, contributing to open source, or mentoring upcoming developers.';
 
 	// Dark mode state
 	let isDark = false;
@@ -65,35 +65,35 @@
 
 	const projects = [
 		{
-			id: 1,
-			title: 'Trainly - Fitness Companion',
-			description: 'Cross-platform fitness tracking app with social features and emergency safety',
-			tech: ['React Native', 'Expo', 'Node.js', 'MongoDB'],
+			id: '1',
+			title: 'Trainly - Your Personal Fitness Companion',
+			description: 'A comprehensive fitness tracking mobile application built with React Native. Combines workout tracking, social features, and progress analytics to create a complete fitness ecosystem.',
+			tech: ['React Native 0.79.4', 'Expo 53.0.0', 'Node.js 18+', 'MongoDB Atlas'],
 			github: 'https://github.com/horacenjoroge/trainly',
 			demo: '/projects/1'
 		},
 		{
-			id: 2,
+			id: '2',
 			title: 'Event Ticketing Platform',
-			description: 'Enterprise-grade microservices platform with CI/CD and monitoring',
-			tech: ['NestJS', 'PostgreSQL', 'Docker', 'K8s'],
+			description: 'A comprehensive, production-ready event ticketing platform built with microservices architecture, featuring automated CI/CD, load balancing, and enterprise-grade monitoring.',
+			tech: ['NestJS', 'TypeScript', 'PostgreSQL 15', 'Prisma ORM'],
 			github: 'https://github.com/horacenjoroge/Event-ticketing-backend',
 			demo: '/projects/2'
 		},
 		{
-			id: 3,
-			title: 'E-commerce API',
-			description: 'RESTful API with payment processing and inventory management',
-			tech: ['TypeScript', 'Express', 'MongoDB', 'Stripe'],
-			github: 'https://github.com/yourusername/ecommerce-api',
+			id: '3',
+			title: 'MCP Chat - AI Command Interface',
+			description: 'Advanced command-line AI chat application using Model Control Protocol (MCP) for document management and tool integration',
+			tech: ['Python 3.9+', 'Anthropic API', 'MCP Protocol', 'FastMCP'],
+			github: 'https://github.com/yourusername/mcp-chat',
 			demo: '/projects/3'
 		},
 		{
-			id: 4,
-			title: 'Task Management App',
-			description: 'Productivity app with drag-and-drop functionality',
-			tech: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
-			github: 'https://github.com/yourusername/task-app',
+			id: '4',
+			title: 'ShopCrawl - Product Search Platform',
+			description: 'Full-stack product search and comparison platform with real-time data aggregation',
+			tech: ['Node.js', 'Express', 'MongoDB', 'JWT'],
+			github: 'https://github.com/horacenjoroge/shopcrawl',
 			demo: '/projects/4'
 		}
 	];
@@ -107,6 +107,8 @@
 <svelte:head>
 	<title>{name} - {title}</title>
 	<meta name="description" content="{name} is a {title} passionate about building amazing web applications" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </svelte:head>
 
@@ -128,11 +130,11 @@
 </button>
 
 <!-- Main Content -->
-<div class="h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-all duration-500 overflow-hidden">
-	<div class="h-full max-w-7xl mx-auto px-6 py-6 flex flex-col">
+<div class="min-h-screen lg:h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-all duration-500 overflow-auto lg:overflow-hidden">
+	<div class="h-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col">
 		
 		<!-- Top Section: Hero + Projects -->
-		<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8 flex-shrink-0">
+		<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8 lg:flex-shrink-0">
 			
 			<!-- Hero Section -->
 			<div class="lg:col-span-2">
@@ -217,7 +219,7 @@
 			<!-- Projects Section -->
 			<div class="lg:col-span-3">
 				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center lg:text-left">Featured Projects</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full max-h-96">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:h-full lg:max-h-96">
 					{#each projects as project}
 						<div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg p-4 shadow-md border border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
 							<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-1">
@@ -266,7 +268,7 @@
 		</div>
 		
 		<!-- Skills Section -->
-		<div class="flex-1 min-h-0">
+		<div class="lg:flex-1 lg:min-h-0">
 			<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Skills & Technologies</h2>
 			<div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4 justify-items-center">
 				{#each skills as skill}
@@ -297,7 +299,6 @@
 <style>
 	:global(html, body) {
 		scroll-behavior: smooth;
-		overflow: hidden;
 		height: 100%;
 		font-family: 'Poppins', sans-serif;
 	}

@@ -118,71 +118,63 @@
 			]
 		},
 		'3': {
-			title: 'E-commerce API',
-			shortDescription: 'RESTful API with payment processing and inventory management',
-			fullDescription: 'A comprehensive e-commerce REST API built with TypeScript and Express, featuring complete product management, user authentication, shopping cart functionality, and payment processing integration. The API follows RESTful principles and includes advanced features like inventory tracking, order management, user reviews, and analytics. It is designed with scalability and security in mind, implementing proper error handling, input validation, and rate limiting. The system includes automated testing, API documentation with Swagger, and deployment configurations for cloud platforms.',
-			technologies: ['TypeScript', 'Express', 'MongoDB', 'Mongoose', 'Stripe', 'JWT', 'Swagger', 'Jest'],
+			title: 'MCP Chat - AI Command Interface',
+			shortDescription: 'Advanced command-line AI chat application using Model Control Protocol (MCP) for document management and tool integration',
+			fullDescription: 'MCP Chat is a sophisticated command-line interface that demonstrates cutting-edge AI integration patterns using Anthropic\'s Model Control Protocol. The application enables interactive chat with AI models while providing document retrieval, command execution, and extensible tool integrations. Built with modern async Python architecture, it showcases advanced AI development practices including real-time document processing, tool-based interactions, and standardized AI communication protocols.',
+			technologies: ['Python 3.9+', 'Anthropic API', 'MCP Protocol', 'FastMCP', 'AsyncIO', 'Pydantic', 'CLI Tools', 'Environment Config'],
 			features: [
-				'Complete user authentication system',
-				'Product catalog with categories and search',
-				'Shopping cart and wishlist functionality',
-				'Order processing and tracking',
-				'Payment integration with Stripe',
-				'Inventory management',
-				'User reviews and ratings',
-				'Admin dashboard API endpoints'
+				'Interactive AI chat with Claude models',
+				'Document retrieval with @ syntax (@document.md)',
+				'Command execution with / prefix (/summarize)',
+				'Tab auto-completion for commands',
+				'Asynchronous tool integration',
+				'Multiple MCP client support',
+				'Real-time document editing capabilities',
+				'Extensible architecture for new tools'
 			],
 			challenges: [
-				'Designing scalable database schemas',
-				'Implementing secure payment processing',
-				'Managing inventory across concurrent orders',
-				'Creating comprehensive API documentation'
+				'Implementing Model Control Protocol standards',
+				'Managing async resource lifecycles properly',
+				'Creating intuitive command-line interactions',
+				'Integrating multiple AI communication patterns'
 			],
-			github: 'https://github.com/yourusername/ecommerce-api',
-			liveDemo: 'https://ecommerce-api-docs.vercel.app',
-			screenshots: [
-				'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600',
-				'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600'
-			],
+			github: 'https://github.com/horacenjoroge/cli_project',
+			liveDemo: 'https://github.com/horacenjoroge/cli_project',
 			highlights: [
-				'RESTful API design with comprehensive documentation',
-				'Secure payment processing with Stripe integration',
-				'Scalable database schema with MongoDB',
-				'Automated testing and API documentation'
+				'Cutting-edge MCP protocol implementation',
+				'Advanced async Python architecture',
+				'Real-time AI tool integration',
+				'Professional CLI interface design'
 			]
 		},
 		'4': {
-			title: 'Task Management Application',
-			shortDescription: 'Productivity app with drag-and-drop functionality',
-			fullDescription: 'A modern task management application built with React, featuring an intuitive drag-and-drop interface, project organization, and team collaboration tools. The app helps users organize tasks, track progress, and collaborate effectively. The application includes features like task prioritization, due date tracking, file attachments, and real-time collaboration. It is designed with a focus on user experience and productivity enhancement. Built with modern React patterns including hooks, context API, and optimized for performance with code splitting and lazy loading.',
-			technologies: ['React', 'Node.js', 'PostgreSQL', 'Socket.io', 'React DnD', 'Material-UI', 'JWT'],
+			title: 'ShopCrawl - Product Search Platform',
+			shortDescription: 'Full-stack product search and comparison platform with real-time data aggregation',
+			fullDescription: 'ShopCrawl is a comprehensive e-commerce search platform that aggregates product data from multiple sources using SerpAPI. The application features user authentication, search history tracking, saved products functionality, and real-time price comparisons across different retailers. Built with a robust Node.js backend and MongoDB database, it demonstrates advanced API integration, user management, and data persistence patterns. The platform includes role-based access control, secure authentication with JWT tokens, and optimized database queries for performance.',
+			technologies: ['Node.js', 'Express', 'MongoDB', 'JWT', 'SerpAPI', 'bcrypt', 'Mongoose', 'REST API'],
 			features: [
-				'Drag-and-drop task organization',
-				'Project and board management',
-				'Task prioritization and labeling',
-				'Due date tracking and notifications',
-				'File attachments and comments',
-				'Team collaboration and sharing',
-				'Real-time updates',
-				'Progress tracking and analytics'
+				'Real-time product search across multiple retailers',
+				'User authentication with JWT tokens',
+				'Search history tracking and categorization',
+				'Save/unsave products functionality',
+				'Price comparison and product details',
+				'RESTful API design',
+				'Role-based access control',
+				'Comprehensive error handling'
 			],
 			challenges: [
-				'Implementing smooth drag-and-drop interactions',
-				'Managing complex state with multiple boards',
-				'Optimizing real-time collaboration',
-				'Creating an intuitive user interface'
+				'Integrating third-party APIs efficiently',
+				'Managing user sessions and authentication',
+				'Optimizing database queries for performance',
+				'Implementing secure data handling'
 			],
-			github: 'https://github.com/yourusername/task-app',
-			liveDemo: 'https://task-management-demo.vercel.app',
-			screenshots: [
-				'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600',
-				'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600'
-			],
+			github: 'https://github.com/horacenjoroge/shopcrawl-Backend',
+			liveDemo: 'https://shopcrawl-demo.railway.app',
 			highlights: [
-				'Smooth drag-and-drop interface with React DnD',
-				'Real-time collaboration with Socket.io',
-				'Modern React architecture with hooks',
-				'Responsive design for all devices'
+				'Advanced API integration with SerpAPI',
+				'Secure authentication and user management',
+				'Real-time product data aggregation',
+				'Professional backend architecture'
 			]
 		}
 	};
@@ -274,8 +266,8 @@
 				</div>
 			</div>
 
-			<!-- Screenshots -->
-			{#if project.screenshots && project.screenshots.length > 0}
+			<!-- Screenshots (only for projects 1 and 2) -->
+			{#if project.screenshots && project.screenshots.length > 0 && (projectId === '1' || projectId === '2')}
 				<div class="mb-16">
 					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Screenshots</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
