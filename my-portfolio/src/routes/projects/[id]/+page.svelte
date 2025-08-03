@@ -197,7 +197,7 @@
 <svelte:head>
 	<title>{project?.title || 'Project'} - Horace Njoroge</title>
 	<meta name="description" content={project?.shortDescription || 'Project details'} />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 </svelte:head>
 
 <!-- Dark mode toggle -->
@@ -405,10 +405,14 @@
 <style>
 	:global(html, body) {
 		scroll-behavior: smooth;
-		font-family: 'Poppins', sans-serif;
+		font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 	}
 	
 	:global(.dark) {
 		color-scheme: dark;
+	}
+	
+	.font-serif {
+		font-family: 'Lora', Georgia, 'Times New Roman', serif;
 	}
 </style>
