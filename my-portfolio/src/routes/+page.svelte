@@ -94,7 +94,7 @@
 			title: 'ShopCrawl - Product Search Platform',
 			description: 'Full-stack product search and comparison platform with real-time data aggregation',
 			tech: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-			github: 'https://github.com/horacenjoroge/shopcrawl',
+			github: 'https://github.com/horacenjoroge/shopcrawl-Backend',
 			demo: '/projects/4'
 		}
 	];
