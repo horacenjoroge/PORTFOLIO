@@ -10,6 +10,7 @@
 	let linkedin = 'https://www.linkedin.com/in/horacenjoroge/';
 	let github = 'https://github.com/horacenjoroge';
 	let bio = 'Passionate full-stack developer with 3 years of experience building scalable web applications. I love creating elegant solutions to complex problems and working with cutting-edge technologies. When I\'m not coding, you can find me exploring new frameworks, contributing to open source, or mentoring upcoming developers.';
+	let resume = 'https://drive.google.com/file/d/1OcInZiJfvL0q2nGTdnqFxPh2rrZaD7O9/view?usp=drive_link';
 
 	// Dark mode state
 	let isDark = false;
@@ -85,7 +86,7 @@
 			title: 'MCP Chat - AI Command Interface',
 			description: 'Advanced command-line AI chat application using Model Control Protocol (MCP) for document management and tool integration',
 			tech: ['Python 3.9+', 'Anthropic API', 'MCP Protocol', 'FastMCP'],
-			github: 'https://github.com/yourusername/mcp-chat',
+			github: 'https://github.com/horacenjoroge/cli_project',
 			demo: '/projects/3'
 		},
 		{
@@ -194,7 +195,7 @@
 								GitHub
 							</a>
 							<a 
-								href="/resume.pdf" 
+								href="{resume}" 
 								target="_blank" 
 								class="inline-flex items-center justify-center px-4 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors duration-200 shadow-md"
 							>
