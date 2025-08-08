@@ -10,7 +10,7 @@
 	let linkedin = 'https://www.linkedin.com/in/horacenjoroge/';
 	let github = 'https://github.com/horacenjoroge';
 	let bio = 'Passionate full-stack developer with 3 years of experience building scalable web applications. I love creating elegant solutions to complex problems and working with cutting-edge technologies. When I\'m not coding, you can find me exploring new frameworks, contributing to open source, or mentoring upcoming developers.';
-	let resume = 'https://docs.google.com/document/d/1xmkITs4HE3MqAHuF_i4ie8j529RnXITIj8Oyoqn-iqM/edit?usp=sharing';
+	let resume = 'https://drive.google.com/file/d/1jwJGq3_cqU-Ccpr2UVVSWF9nlZYCPlhS/view?usp=sharing';
 
 	// Dark mode state
 	let isDark = false;
