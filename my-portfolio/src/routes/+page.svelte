@@ -91,10 +91,10 @@
 		},
 		{
 			id: '4',
-			title: 'ShopCrawl - Product Search Platform',
-			description: 'Full-stack product search and comparison platform with real-time data aggregation',
-			tech: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-			github: 'https://github.com/horacenjoroge/shopcrawl-Backend',
+			title: 'Distributed-Event-Log-Platform',
+			description: 'Production-ready distributed commit log system (Kafka/Pulsar-style) built from scratch, implementing principles from Designing Data-Intensive Applications.',
+			tech: ['Python 3.10+', 'gRPC', 'Raft', 'asyncio', 'Docker'],
+			github: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			demo: '/projects/4'
 		}
 	];

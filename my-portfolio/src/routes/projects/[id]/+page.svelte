@@ -148,33 +148,33 @@
 			]
 		},
 		'4': {
-			title: 'ShopCrawl - Product Search Platform',
-			shortDescription: 'Full-stack product search and comparison platform with real-time data aggregation',
-			fullDescription: 'ShopCrawl is a comprehensive e-commerce search platform that aggregates product data from multiple sources using SerpAPI. The application features user authentication, search history tracking, saved products functionality, and real-time price comparisons across different retailers. Built with a robust Node.js backend and MongoDB database, it demonstrates advanced API integration, user management, and data persistence patterns. The platform includes role-based access control, secure authentication with JWT tokens, and optimized database queries for performance.',
-			technologies: ['Node.js', 'Express', 'MongoDB', 'JWT', 'SerpAPI', 'bcrypt', 'Mongoose', 'REST API'],
+			title: 'Distributed-Event-Log-Platform',
+			shortDescription: 'Production-ready distributed commit log system (Kafka/Pulsar-style) built from scratch, implementing principles from Designing Data-Intensive Applications.',
+			fullDescription: 'DistributedLog is a production-ready distributed commit log system built from scratch in Python, implementing concepts from Martin Kleppmann\'s "Designing Data-Intensive Applications." It provides an append-only commit log with crash recovery, sparse offset indexing for O(log n) lookups, log compaction and retention, and producer/consumer clients with batching and compression. The system uses a multi-broker architecture over gRPC, leader-follower replication with In-Sync Replicas (ISR), and Raft consensus for leader election implemented from scratch. It supports exactly-once semantics via producer idempotence, distributed transactions (two-phase commit), and consumer isolation levels. Performance optimizations include zero-copy transfers (sendfile, mmap), async I/O for 10,000+ connections per thread, buffer pooling, and adaptive batch fetching. The project includes 38,120 lines of code across production code, tests, and documentation.',
+			technologies: ['Python 3.10+', 'gRPC', 'Protocol Buffers', 'Raft', 'asyncio', 'pytest', 'Docker', 'Two-phase commit'],
 			features: [
-				'Real-time product search across multiple retailers',
-				'User authentication with JWT tokens',
-				'Search history tracking and categorization',
-				'Save/unsave products functionality',
-				'Price comparison and product details',
-				'RESTful API design',
-				'Role-based access control',
-				'Comprehensive error handling'
+				'Append-only commit log with crash recovery and sparse offset indexing',
+				'Producer/consumer clients with batching, compression, and topic partitioning',
+				'Consumer groups with automatic rebalancing',
+				'Multi-broker architecture with gRPC and leader-follower replication (ISR)',
+				'Raft consensus for leader election and cluster controller',
+				'Partition reassignment and live data migration',
+				'Producer idempotence and distributed transactions (2PC)',
+				'Zero-copy I/O, buffer pooling, and adaptive batch fetching'
 			],
 			challenges: [
-				'Integrating third-party APIs efficiently',
-				'Managing user sessions and authentication',
-				'Optimizing database queries for performance',
-				'Implementing secure data handling'
+				'Implementing Raft consensus and cluster controller from scratch',
+				'Achieving exactly-once semantics across producers and consumers',
+				'Designing zero-copy and async I/O for high throughput',
+				'Coordinating multi-broker metadata and partition assignment'
 			],
-			github: 'https://github.com/horacenjoroge/shopcrawl-Backend',
-			liveDemo: 'https://shopcrawl-demo.railway.app',
+			github: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
+			liveDemo: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			highlights: [
-				'Advanced API integration with SerpAPI',
-				'Secure authentication and user management',
-				'Real-time product data aggregation',
-				'Professional backend architecture'
+				'Kafka/Pulsar-style distributed log built from scratch',
+				'Raft consensus and ISR replication implemented in Python',
+				'3x throughput and 10x concurrent connections with optimizations',
+				'38,120 lines across production code, tests, and docs'
 			]
 		}
 	};
