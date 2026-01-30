@@ -118,33 +118,33 @@
 			]
 		},
 		'3': {
-			title: 'MCP Chat - AI Command Interface',
-			shortDescription: 'Advanced command-line AI chat application using Model Control Protocol (MCP) for document management and tool integration',
-			fullDescription: 'MCP Chat is a sophisticated command-line interface that demonstrates cutting-edge AI integration patterns using Anthropic\'s Model Control Protocol. The application enables interactive chat with AI models while providing document retrieval, command execution, and extensible tool integrations. Built with modern async Python architecture, it showcases advanced AI development practices including real-time document processing, tool-based interactions, and standardized AI communication protocols.',
-			technologies: ['Python 3.9+', 'Anthropic API', 'MCP Protocol', 'FastMCP', 'AsyncIO', 'Pydantic', 'CLI Tools', 'Environment Config'],
+			title: 'AfricGraph',
+			shortDescription: 'Ontology-driven decision platform for SMEs. FastAPI backend, React frontend, and supporting services run via Docker Compose.',
+			fullDescription: 'AfricGraph is an ontology-driven decision platform for small and medium enterprises. The system combines a FastAPI backend with a React frontend and runs a full stack of services via Docker Compose: Neo4j for graph data, PostgreSQL, Redis, RabbitMQ, and Elasticsearch. It supports ingestion jobs via Celery workers, JWT authentication, and configurable CORS. Backend and frontend can be run together with docker-compose up, with API at port 8000, frontend at 3000, Neo4j Browser at 7474, and RabbitMQ management at 15672.',
+			technologies: ['Python', 'FastAPI', 'React', 'TypeScript', 'Neo4j', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Elasticsearch', 'Docker', 'Celery', 'Cypher'],
 			features: [
-				'Interactive AI chat with Claude models',
-				'Document retrieval with @ syntax (@document.md)',
-				'Command execution with / prefix (/summarize)',
-				'Tab auto-completion for commands',
-				'Asynchronous tool integration',
-				'Multiple MCP client support',
-				'Real-time document editing capabilities',
-				'Extensible architecture for new tools'
+				'Ontology-driven data model for SME decision support',
+				'FastAPI backend with health checks and configurable env',
+				'React frontend with TypeScript',
+				'Neo4j graph database (7474, 7687)',
+				'PostgreSQL, Redis, RabbitMQ, Elasticsearch in stack',
+				'Celery workers for async ingestion jobs',
+				'Docker Compose for local and production runs',
+				'JWT authentication and CORS configuration'
 			],
 			challenges: [
-				'Implementing Model Control Protocol standards',
-				'Managing async resource lifecycles properly',
-				'Creating intuitive command-line interactions',
-				'Integrating multiple AI communication patterns'
+				'Coordinating multiple data stores and message queues',
+				'Designing ontology and graph schema for SME use cases',
+				'Running and debugging ingestion pipeline with Celery',
+				'Keeping Docker Compose and env config in sync across services'
 			],
-			github: 'https://github.com/horacenjoroge/cli_project',
-			liveDemo: 'https://github.com/horacenjoroge/cli_project',
+			github: 'https://github.com/horacenjoroge/AfricGraph',
+			liveDemo: 'https://github.com/horacenjoroge/AfricGraph',
 			highlights: [
-				'Cutting-edge MCP protocol implementation',
-				'Advanced async Python architecture',
-				'Real-time AI tool integration',
-				'Professional CLI interface design'
+				'Ontology-driven platform for SME decisions',
+				'Full stack: FastAPI, React, Neo4j, PostgreSQL, Redis, RabbitMQ, Elasticsearch',
+				'Single-command run with Docker Compose',
+				'Celery-based ingestion pipeline with worker docs'
 			]
 		},
 		'4': {

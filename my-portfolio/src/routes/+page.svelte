@@ -83,10 +83,10 @@
 		},
 		{
 			id: '3',
-			title: 'MCP Chat - AI Command Interface',
-			description: 'Advanced command-line AI chat application using Model Control Protocol (MCP) for document management and tool integration',
-			tech: ['Python 3.9+', 'Anthropic API', 'MCP Protocol', 'FastMCP'],
-			github: 'https://github.com/horacenjoroge/cli_project',
+			title: 'AfricGraph',
+			description: 'Ontology-driven decision platform for SMEs. FastAPI backend, React frontend, and supporting services run via Docker Compose.',
+			tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Neo4j', 'PostgreSQL', 'Docker'],
+			github: 'https://github.com/horacenjoroge/AfricGraph',
 			demo: '/projects/3'
 		},
 		{
