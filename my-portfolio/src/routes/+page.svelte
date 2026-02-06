@@ -75,10 +75,10 @@
 		},
 		{
 			id: '2',
-			title: 'Event Ticketing Platform',
-			description: 'A comprehensive, production-ready event ticketing platform built with microservices architecture, featuring automated CI/CD, load balancing, and enterprise-grade monitoring.',
-			tech: ['NestJS', 'TypeScript', 'PostgreSQL 15', 'Prisma ORM'],
-			github: 'https://github.com/horacenjoroge/Event-ticketing-backend',
+			title: 'Provote',
+			description: 'Voting and polling platform for secure, transparent decisions and community engagement.',
+			tech: ['Node.js', 'TypeScript', 'React', 'PostgreSQL'],
+			github: 'https://github.com/horacenjoroge/provote',
 			demo: '/projects/2'
 		},
 		{

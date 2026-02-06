@@ -78,43 +78,27 @@
 			]
 		},
 		'2': {
-			title: 'Event Ticketing Platform',
-			shortDescription: 'A comprehensive, production-ready event ticketing platform built with microservices architecture, featuring automated CI/CD, load balancing, and enterprise-grade monitoring.',
-			fullDescription: 'This event ticketing platform represents enterprise-grade microservices architecture with 7 independent services including user management, event management, ticket inventory, order processing, payment integration, and notifications. The platform handles high-traffic scenarios with real-time ticket inventory management, distributed order processing using saga patterns, and multi-provider payment integration including Stripe, M-Pesa, and Flutterwave. Built with comprehensive DevOps practices including automated CI/CD pipelines, blue-green deployments, load balancing with Nginx, and enterprise monitoring with Prometheus and Grafana. The system has been load tested to handle 283 requests/second with 100% success rate.',
-			technologies: ['NestJS', 'TypeScript', 'PostgreSQL 15', 'Prisma ORM', 'Docker', 'Kubernetes', 'RabbitMQ', 'Redis', 'Nginx', 'Prometheus', 'Grafana', 'GitHub Actions'],
+			title: 'Provote',
+			shortDescription: 'Voting and polling platform for secure, transparent decisions and community engagement.',
+			fullDescription: 'Provote is a voting and polling platform designed for secure, transparent decisions and community engagement. Users can create and participate in polls and votes with clear results and auditability. The project provides a modern stack for building and running voting flows with a focus on reliability and user experience.',
+			technologies: ['Node.js', 'TypeScript', 'React', 'PostgreSQL'],
 			features: [
-				'Microservices architecture with 7 independent services',
-				'Real-time ticket inventory with reservation system',
-				'Multi-provider payment processing (Stripe, M-Pesa, Flutterwave)',
-				'Event-driven communication with RabbitMQ',
-				'Load balancing with Nginx and health monitoring',
-				'Comprehensive CI/CD pipeline with automated testing',
-				'Blue-green deployment strategy for zero downtime',
-				'Enterprise monitoring with Prometheus and Grafana',
-				'Role-based access control for different user types',
-				'Distributed transaction management with saga pattern'
+				'Create and manage polls and votes',
+				'Secure, transparent voting and result visibility',
+				'Community engagement and participation flows',
+				'Modern web stack with TypeScript and React'
 			],
 			challenges: [
-				'Designing microservices boundaries and communication patterns',
-				'Implementing distributed transaction management',
-				'Achieving high availability with load balancing',
-				'Setting up comprehensive monitoring and alerting',
-				'Managing database consistency across services'
+				'Ensuring vote integrity and preventing tampering',
+				'Designing clear UX for creating and viewing polls',
+				'Scaling for concurrent voters and real-time results'
 			],
-			github: 'https://github.com/horacenjoroge/Event-ticketing-backend',
-			liveDemo: 'https://event-ticketing-demo.railway.app',
-			screenshots: [
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/prometheus%20and%20grafana/Screenshot%202025-07-30%20at%2021.54.44.png',
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/prometheus%20and%20grafana/Screenshot%202025-07-31%20at%2003.52.11.png',
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/prometheus%20and%20grafana/Screenshot%202025-07-31%20at%2004.09.26.png',
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/prometheus%20and%20grafana/Screenshot%202025-07-31%20at%2004.56.13.png'
-			],
+			github: 'https://github.com/horacenjoroge/provote',
+			liveDemo: 'https://drive.google.com/file/d/1mVBfaW64q_juza02aIm0Y76ifX-jl38j/view?usp=sharing',
 			highlights: [
-				'283 requests/second throughput with 100% success rate',
-				'Zero-downtime deployments with blue-green strategy',
-				'Comprehensive monitoring with Prometheus/Grafana',
-				'Multi-provider payment integration',
-				'Enterprise-grade microservices architecture'
+				'Voting and polling platform for transparent decisions',
+				'Secure, auditable results and community engagement',
+				'TypeScript and React frontend with Node.js backend'
 			]
 		},
 		'3': {
