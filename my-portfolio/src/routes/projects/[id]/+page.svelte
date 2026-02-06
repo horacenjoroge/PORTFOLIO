@@ -123,7 +123,7 @@
 				'Keeping Docker Compose and env config in sync across services'
 			],
 			github: 'https://github.com/horacenjoroge/AfricGraph',
-			liveDemo: 'https://github.com/horacenjoroge/AfricGraph',
+			liveDemo: 'https://drive.google.com/file/d/1mVBfaW64q_juza02aIm0Y76ifX-jl38j/view?usp=sharing',
 			highlights: [
 				'Ontology-driven platform for SME decisions',
 				'Full stack: FastAPI, React, Neo4j, PostgreSQL, Redis, RabbitMQ, Elasticsearch',
