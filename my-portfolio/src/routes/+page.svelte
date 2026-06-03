@@ -69,8 +69,8 @@
 		{
 			id: '1',
 			title: 'Cvelo',
-			description: 'A modern cycling platform focused on helping riders discover, manage, and enjoy a better biking experience online.',
-			tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Web Platform'],
+			description: 'An AI-powered job search platform for resume tailoring, cover letter generation, ATS scoring, job discovery, application tracking, and browser-based autofill.',
+			tech: ['React', 'Vite', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Redis', 'Chrome Extension'],
 			github: 'https://github.com/horacenjoroge/Cvelo',
 			demo: '/projects/1'
 		},

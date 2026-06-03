@@ -36,30 +36,117 @@
 	const projects: Record<string, any> = {
 		'1': {
 			title: 'Cvelo',
-			shortDescription: 'A modern cycling platform built to give riders a polished, web-first experience around biking and community discovery.',
-			fullDescription: 'Cvelo is a polished cycling-focused web experience designed to present biking as a lifestyle, not just a utility. The project emphasizes a clean product presentation, smooth navigation, and a refined responsive layout that helps visitors explore the platform with clarity. It is positioned as a live, user-facing product experience where visual design, usability, and fast access to the core offering matter as much as the technical implementation.',
-			technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Responsive UI', 'Modern Web Deployment'],
+			shortDescription: 'An AI job search platform that helps candidates move from job discovery to application with resume tailoring, cover letters, ATS scoring, tracking, and browser autofill.',
+			fullDescription: 'Cvelo is a full-stack AI job search platform built to reduce friction between finding a job and actually applying to it well. The product combines resume parsing and rendering, AI-powered resume tailoring, cover letter generation, ATS scoring, job matching, application pipeline tracking, billing, browser push notifications, and a Chrome extension for autofilling external job boards. The architecture spans a React and Vite frontend, a FastAPI backend, PostgreSQL for core data, Redis with RQ workers for background jobs, object storage for uploads, and a Manifest V3 browser extension that supports embedded iframe ATS flows. The repository is set up like a production application, with health checks, Prometheus metrics, Sentry integration, Docker-based local development, environment-driven configuration, and clearly separated backend, frontend, deployment, and extension packages.',
+			technologies: [
+				'React 18',
+				'Vite 5',
+				'TypeScript',
+				'FastAPI',
+				'SQLAlchemy 2',
+				'Alembic',
+				'PostgreSQL 15',
+				'Redis 7',
+				'RQ Workers',
+				'Chrome Extension (Manifest V3)',
+				'OpenAI / Anthropic Abstraction',
+				'Paystack',
+				'Prometheus',
+				'Sentry',
+				'Docker Compose'
+			],
 			features: [
-				'Cycling-focused product experience with clear user journeys',
-				'Responsive interface optimized for desktop and mobile visitors',
-				'Clean presentation of the brand, value proposition, and offering',
-				'Fast, modern frontend experience with polished interaction flows',
-				'Production live demo available for public exploration'
+				'Resume upload, parsing, rendering, and management for multiple tailored variants',
+				'AI-powered resume tailoring from job descriptions and guided cover letter generation',
+				'ATS scoring and job matching to help candidates understand fit before applying',
+				'Application pipeline with statuses, recent activity, and progress visibility',
+				'Browser extension that autofills external job applications, including embedded iframe ATS flows',
+				'Plan-aware billing with Paystack, usage gating, subscription flows, and unlock handling',
+				'Browser push notifications for pipeline milestones and engagement events',
+				'Production-focused API surface with auth, billing, templates, feedback, admin, and health endpoints'
 			],
 			challenges: [
-				'Designing a polished brand-forward UI that still feels lightweight',
-				'Balancing visual richness with responsive performance',
-				'Keeping the experience consistent across device sizes',
-				'Presenting the product clearly without overwhelming first-time users'
+				'Coordinating a multi-surface product across frontend, backend, workers, storage, and a Chrome extension',
+				'Building reliable autofill for cross-frame and embedded ATS application flows',
+				'Managing AI-powered document generation while enforcing billing plans and usage limits',
+				'Supporting resilient apply flows with draft persistence, reload restoration, and post-billing return paths',
+				'Operating a production-style stack with health checks, metrics, observability, and environment-based deployment'
 			],
 			github: 'https://github.com/horacenjoroge/Cvelo',
 			liveDemo: 'https://cveloapp.com/',
 			hideCode: true,
 			highlights: [
-				'Live production experience available at cveloapp.com',
-				'Cycling-focused branding and product presentation',
-				'Responsive UI built for a polished web experience',
-				'Frontend-first project with emphasis on clarity and usability'
+				'End-to-end product covering discovery, document generation, application tracking, and external-job autofill',
+				'Multi-package architecture: frontend, FastAPI backend, workers, deployment config, and Manifest V3 extension',
+				'AI document workflows powered through provider abstraction and document-processing utilities',
+				'Billing, notifications, and observability are built into the main product instead of treated as afterthoughts',
+				'Live public deployment available at cveloapp.com'
+			],
+			productAreas: [
+				{
+					title: 'Resume System',
+					description: 'Upload PDF and DOCX resumes, parse structured candidate data, manage default resumes, and create tailored variants per job.'
+				},
+				{
+					title: 'Apply Flow',
+					description: 'Guide users through resume tailoring, cover letter generation, draft persistence, and safe post-billing return flows.'
+				},
+				{
+					title: 'Job Discovery',
+					description: 'Surface matching roles, support fit analysis, and help candidates revisit promising opportunities.'
+				},
+				{
+					title: 'Pipeline Tracking',
+					description: 'Track movement across applied, screening, interview, offer, accepted, and rejected stages with recent activity visibility.'
+				},
+				{
+					title: 'Browser Extension',
+					description: 'Autofill external job applications, including embedded iframe ATS surfaces, with tracked session history and state transitions.'
+				},
+				{
+					title: 'Billing and Notifications',
+					description: 'Gate premium AI flows with Paystack-backed subscriptions and keep users engaged through browser push notifications.'
+				}
+			],
+			architectureLayers: [
+				'React + Vite + TypeScript frontend with dashboard, apply flow, billing, and job discovery experiences',
+				'FastAPI backend handling auth, resumes, tailoring, cover letters, billing, feedback, templates, and admin flows',
+				'PostgreSQL 15 for core platform data plus Redis and RQ for queues, caching, and background task execution',
+				'Object storage for uploads and generated assets, with S3-compatible integrations',
+				'Manifest V3 Chrome extension with content scripts, service worker, popup UI, and cross-frame autofill routing'
+			],
+			stackGroups: [
+				{
+					label: 'Frontend',
+					items: ['React 18', 'Vite 5', 'TypeScript', 'React Router', 'Zustand', 'TipTap', 'PWA']
+				},
+				{
+					label: 'Backend',
+					items: ['FastAPI', 'SQLAlchemy 2', 'Alembic', 'PostgreSQL 15', 'Redis 7', 'RQ workers']
+				},
+				{
+					label: 'AI and Docs',
+					items: ['OpenAI / Anthropic abstraction', 'tiktoken', 'sentence-transformers', 'pdfplumber', 'python-docx', 'WeasyPrint']
+				},
+				{
+					label: 'Platform',
+					items: ['Paystack', 'pywebpush', 'Prometheus', 'Sentry', 'Docker Compose', 'Chrome Extension']
+				}
+			],
+			apiAreas: [
+				'/api/auth and /api/oauth for authentication and identity flows',
+				'/api/ai, /api/resumes, /api/tailored, and /api/cover-letters for AI document workflows',
+				'/api/job-tracker and /api/job-discovery for application management and matching',
+				'/api/autofill for extension-assisted application support',
+				'/api/billing, /api/subscription, and /api/paystack for monetization and entitlement control',
+				'/api/push, /api/templates, /api/feedback, and /api/admin for engagement and platform operations'
+			],
+			devWorkflow: [
+				'Clone the repo, copy `.env.example` to `.env`, and configure core auth, AI, billing, storage, and push keys',
+				'Start the full local stack with `docker compose up --build` to launch postgres, redis, api, worker, and frontend',
+				'Use `docker compose exec` workflows for migrations, worker inspection, test runs, and service-specific commands',
+				'Build and load the browser extension from `packages/extension` when testing external application autofill flows',
+				'Monitor reliability with `/api/health`, `/metrics`, structured logging, and Sentry-backed observability'
 			]
 		},
 		'2': {
@@ -249,6 +336,98 @@
 									alt={`${project.title} screenshot ${index + 1}`}
 									class="w-full h-64 object-cover rounded-lg"
 								/>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			{#if projectId === '1'}
+				<div class="mb-16 grid grid-cols-1 md:grid-cols-3 gap-4">
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-2">Product Type</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">AI Job Search Platform</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Built around reducing friction from discovery to application.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400 mb-2">Deployment Shape</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Multi-Surface System</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Frontend, API, workers, storage, billing, push, and extension all integrated.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-orange-600 dark:text-orange-400 mb-2">Live Experience</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Production-Oriented</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Health checks, metrics, Sentry, billing, and extension workflows are all part of the repo.</p>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Architecture Overview</h2>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
+								Cvelo is organized like a production system rather than a single app repo. The frontend, API, queue workers, storage layer, billing logic, push notification flows, and browser extension each have clearly defined responsibilities and deployment concerns.
+							</p>
+							<div class="space-y-3">
+								{#each project.architectureLayers as layer}
+									<div class="flex items-start gap-3">
+										<div class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500"></div>
+										<p class="text-gray-700 dark:text-gray-300">{layer}</p>
+									</div>
+								{/each}
+							</div>
+						</div>
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Main Product Areas</h2>
+							<div class="space-y-4">
+								{#each project.productAreas as area}
+									<div class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4">
+										<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">{area.title}</h3>
+										<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{area.description}</p>
+									</div>
+								{/each}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Stack by Surface</h2>
+						<div class="space-y-5">
+							{#each project.stackGroups as group}
+								<div>
+									<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">{group.label}</h3>
+									<div class="flex flex-wrap gap-2">
+										{#each group.items as item}
+											<span class="rounded-full bg-slate-100 dark:bg-gray-900/70 border border-slate-200 dark:border-gray-700 px-3 py-1.5 text-sm text-gray-700 dark:text-gray-300">
+												{item}
+											</span>
+										{/each}
+									</div>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">API and Platform Surface</h2>
+						<div class="space-y-3">
+							{#each project.apiAreas as area}
+								<div class="flex items-start gap-3 rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{area}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Local Development and Operations</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{#each project.devWorkflow as step}
+							<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5">
+								<p class="text-gray-700 dark:text-gray-300 leading-relaxed">{step}</p>
 							</div>
 						{/each}
 					</div>
