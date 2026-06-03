@@ -36,6 +36,7 @@
 	function updateTheme() {
 		if (typeof document !== 'undefined') {
 			document.documentElement.classList.toggle('dark', isDark);
+			document.body.classList.toggle('dark', isDark);
 		}
 	}
 
@@ -67,10 +68,10 @@
 	const projects = [
 		{
 			id: '1',
-			title: 'Trainly - Your Personal Fitness Companion',
-			description: 'A comprehensive fitness tracking mobile application built with React Native. Combines workout tracking, social features, and progress analytics to create a complete fitness ecosystem.',
-			tech: ['React Native 0.79.4', 'Expo 53.0.0', 'Node.js 18+', 'MongoDB Atlas'],
-			github: 'https://github.com/horacenjoroge/trainly',
+			title: 'Cvelo',
+			description: 'A modern cycling platform focused on helping riders discover, manage, and enjoy a better biking experience online.',
+			tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Web Platform'],
+			github: 'https://github.com/horacenjoroge/Cvelo',
 			demo: '/projects/1'
 		},
 		{
@@ -100,7 +101,7 @@
 	];
 
 	// Navigate to project detail
-	function viewProject(projectId) {
+	function viewProject(projectId: string) {
 		window.location.href = `/projects/${projectId}`;
 	}
 </script>
@@ -280,10 +281,12 @@
 							class="w-8 h-8 mb-2 group-hover:scale-110 transition-transform duration-200"
 							on:error={(e) => {
 								// Create a fallback icon with first letter
-								const fallback = e.target.nextElementSibling;
+								const target = e.currentTarget as HTMLImageElement;
+								const fallback = target.nextElementSibling as HTMLDivElement | null;
+								if (!fallback) return;
 								fallback.textContent = skill.name.charAt(0);
 								fallback.style.display = 'flex';
-								e.target.style.display = 'none';
+								target.style.display = 'none';
 							}}
 						/>
 						<div class="w-8 h-8 mb-2 bg-blue-500 text-white rounded-lg font-bold text-sm items-center justify-center hidden"></div>
@@ -314,6 +317,7 @@
 	
 	.line-clamp-1 {
 		display: -webkit-box;
+		line-clamp: 1;
 		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
@@ -321,6 +325,7 @@
 	
 	.line-clamp-2 {
 		display: -webkit-box;
+		line-clamp: 2;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;

@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 
 	// Get project ID from URL
-	$: projectId = $page.params.id;
+	$: projectId = $page.params.id ?? '';
 
 	// Dark mode state
 	let isDark = false;
@@ -12,69 +12,54 @@
 	// Initialize dark mode on mount
 	onMount(() => {
 		const hour = new Date().getHours();
-		isDark = hour >= 18 || hour <= 6;
+		const savedMode = localStorage.getItem('darkMode');
+		isDark = savedMode ? JSON.parse(savedMode) : (hour >= 18 || hour <= 6);
 		updateTheme();
 	});
 
 	// Update theme function
 	function updateTheme() {
 		if (typeof document !== 'undefined') {
-			if (isDark) {
-				document.documentElement.classList.add('dark');
-				document.body.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-				document.body.classList.remove('dark');
-			}
+			document.documentElement.classList.toggle('dark', isDark);
+			document.body.classList.toggle('dark', isDark);
 		}
 	}
 
 	// Toggle dark mode
 	function toggleDarkMode() {
 		isDark = !isDark;
+		localStorage.setItem('darkMode', JSON.stringify(isDark));
 		updateTheme();
 	}
 
 	// Project data
-	const projects = {
+	const projects: Record<string, any> = {
 		'1': {
-			title: 'Trainly - Your Personal Fitness Companion',
-			shortDescription: 'A comprehensive fitness tracking mobile application built with React Native. Combines workout tracking, social features, and progress analytics to create a complete fitness ecosystem.',
-			fullDescription: 'Trainly is a comprehensive fitness tracking mobile application built with React Native that combines workout tracking, social features, and emergency safety features to create a complete fitness ecosystem for users. The app features real-time workout tracking for multiple activity types including running, cycling, swimming, and gym workouts. It includes GPS route tracking, performance metrics like distance, pace, speed, calories, and heart rate monitoring. Key social features include the ability to share workouts, connect with friends, participate in a community feed, and celebrate achievements together. The app also prioritizes user safety with emergency contacts, SOS functionality, and planned fall detection features.',
-			technologies: ['React Native 0.79.4', 'Expo 53.0.0', 'Node.js 18+', 'MongoDB Atlas', 'React Navigation', 'React Native Maps', 'Express.js', 'JWT', 'AsyncStorage', 'Railway'],
+			title: 'Cvelo',
+			shortDescription: 'A modern cycling platform built to give riders a polished, web-first experience around biking and community discovery.',
+			fullDescription: 'Cvelo is a polished cycling-focused web experience designed to present biking as a lifestyle, not just a utility. The project emphasizes a clean product presentation, smooth navigation, and a refined responsive layout that helps visitors explore the platform with clarity. It is positioned as a live, user-facing product experience where visual design, usability, and fast access to the core offering matter as much as the technical implementation.',
+			technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Responsive UI', 'Modern Web Deployment'],
 			features: [
-				'Real-time workout tracking for multiple activity types',
-				'GPS route tracking and mapping',
-				'Performance metrics tracking (distance, pace, calories)',
-				'Social fitness community with posts and connections',
-				'Emergency safety features with SOS functionality',
-				'Progress dashboard with visual analytics',
-				'Achievement system with badges and milestones',
-				'Dark/Light theme customization',
-				'Offline support with cloud synchronization',
-				'Cross-platform support (Android & iOS ready)'
+				'Cycling-focused product experience with clear user journeys',
+				'Responsive interface optimized for desktop and mobile visitors',
+				'Clean presentation of the brand, value proposition, and offering',
+				'Fast, modern frontend experience with polished interaction flows',
+				'Production live demo available for public exploration'
 			],
 			challenges: [
-				'Implementing accurate GPS tracking and route mapping',
-				'Managing offline data synchronization',
-				'Optimizing battery usage for continuous tracking',
-				'Creating responsive cross-platform UI components',
-				'Integrating emergency safety features reliably'
+				'Designing a polished brand-forward UI that still feels lightweight',
+				'Balancing visual richness with responsive performance',
+				'Keeping the experience consistent across device sizes',
+				'Presenting the product clearly without overwhelming first-time users'
 			],
-			github: 'https://github.com/horacenjoroge/trainly',
-			liveDemo: 'https://drive.google.com/file/d/1MJpB_6pGK1YWRBUoOseVetiPOH1WmMRE/view?usp=sharing',
-			screenshots: [
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/trainly/Profile.jpeg',
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/trainly/Home.jpeg',
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/trainly/Sign%20In.jpeg',
-				'https://raw.githubusercontent.com/horacenjoroge/project-images/main/trainly/Training.jpeg'
-			],
+			github: 'https://github.com/horacenjoroge/Cvelo',
+			liveDemo: 'https://cveloapp.com/',
+			hideCode: true,
 			highlights: [
-				'102MB APK with comprehensive fitness tracking',
-				'Real-time GPS tracking and route visualization',
-				'Social fitness community features',
-				'Emergency SOS functionality for safety',
-				'Cross-platform React Native development'
+				'Live production experience available at cveloapp.com',
+				'Cycling-focused branding and product presentation',
+				'Responsive UI built for a polished web experience',
+				'Frontend-first project with emphasis on clarity and usability'
 			]
 		},
 		'2': {
@@ -163,7 +148,7 @@
 		}
 	};
 
-	$: project = projects[projectId];
+	$: project = projectId ? projects[projectId] : undefined;
 
 	function goBack() {
 		window.history.back();
@@ -218,16 +203,18 @@
 
 				<!-- Action Buttons -->
 				<div class="flex flex-wrap justify-center gap-4 mb-8">
-					<a 
-						href={project.github}
-						target="_blank"
-						class="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg font-medium transition-colors duration-200 shadow-md"
-					>
-						<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
-						</svg>
-						View Code
-					</a>
+					{#if !project.hideCode}
+						<a 
+							href={project.github}
+							target="_blank"
+							class="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg font-medium transition-colors duration-200 shadow-md"
+						>
+							<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+							</svg>
+							View Code
+						</a>
+					{/if}
 					<a 
 						href={project.liveDemo}
 						target="_blank"
@@ -333,18 +320,30 @@
 			<div class="text-center bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
 				<h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Interested in this project?</h3>
 				<p class="text-gray-600 dark:text-gray-400 mb-6">
-					Feel free to explore the code, try the live demo, or reach out if you have any questions!
+					Feel free to try the live demo or reach out if you have any questions!
 				</p>
 				<div class="flex flex-wrap justify-center gap-4">
+					{#if !project.hideCode}
+						<a 
+							href={project.github}
+							target="_blank"
+							class="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg font-medium transition-colors duration-200"
+						>
+							<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+							</svg>
+							Explore Code
+						</a>
+					{/if}
 					<a 
-						href={project.github}
+						href={project.liveDemo}
 						target="_blank"
-						class="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white rounded-lg font-medium transition-colors duration-200"
+						class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
 					>
-						<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+						<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
 						</svg>
-						Explore Code
+						Live Demo
 					</a>
 					<button 
 						on:click={goBack}
@@ -388,7 +387,4 @@
 		color-scheme: dark;
 	}
 	
-	.font-serif {
-		font-family: 'Lora', Georgia, 'Times New Roman', serif;
-	}
 </style>
