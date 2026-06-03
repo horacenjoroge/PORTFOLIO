@@ -170,14 +170,56 @@
 				'Documenting the system thoroughly enough that technical reviewers can understand architecture without a dedicated frontend demo',
 				'Preparing the platform for operational concerns such as backup, restore, deployment, and monitoring'
 			],
-			backendAssets: [
-				'OpenAPI schema artifacts committed as `schema.json` and `schema.yml`',
-				'Insomnia API collection committed as `provote-insomnia-collection.json`',
-				'API reference in `docs/api.md`',
-				'Architecture documentation with Mermaid diagrams in `docs/architecture-comprehensive.md`',
-				'Database ERD and schema design notes in `docs/database-erd-design.md`',
-				'Load tests in `load_tests/` plus helper scripts such as `run_load_test.sh`',
-				'Ops scripts in `scripts/` for backup, restore, migration safety, and deployment support'
+			exploreLinks: [
+				{
+					title: 'OpenAPI Schema',
+					description: 'Inspect the machine-readable API contract committed in the repository.',
+					url: 'https://github.com/horacenjoroge/AlxProjectNexus/blob/main/schema.yml'
+				},
+				{
+					title: 'Insomnia Collection',
+					description: 'Import the prepared API collection and exercise the endpoints without building a frontend.',
+					url: 'https://github.com/horacenjoroge/AlxProjectNexus/blob/main/provote-insomnia-collection.json'
+				},
+				{
+					title: 'API Reference',
+					description: 'Read the curated API documentation covering the main backend surface.',
+					url: 'https://github.com/horacenjoroge/AlxProjectNexus/blob/main/docs/api.md'
+				},
+				{
+					title: 'Architecture Docs',
+					description: 'Review the full system architecture, request flows, idempotency notes, and Mermaid diagrams.',
+					url: 'https://github.com/horacenjoroge/AlxProjectNexus/blob/main/docs/architecture-comprehensive.md'
+				},
+				{
+					title: 'Database ERD',
+					description: 'See the schema design, relationships, constraints, and ERD-focused backend notes.',
+					url: 'https://github.com/horacenjoroge/AlxProjectNexus/blob/main/docs/database-erd-design.md'
+				},
+				{
+					title: 'Load Tests',
+					description: 'Explore load and websocket test assets that validate reliability under traffic.',
+					url: 'https://github.com/horacenjoroge/AlxProjectNexus/tree/main/load_tests'
+				}
+			],
+			architectureSummary: [
+				'Django REST Framework API behind Nginx and Gunicorn workers',
+				'PostgreSQL for persistent state and Redis for cache, broker, and pub/sub',
+				'Celery workers and Celery Beat handling background and scheduled tasks',
+				'Django Channels and Redis pub/sub for real-time updates',
+				'Documented request flow, idempotency path, ERD, and scaling strategy in Mermaid-backed architecture docs'
+			],
+			apiShowcase: [
+				'Poll endpoints for listing, creating, retrieving, and viewing poll results',
+				'Vote endpoints designed around idempotent creation and safe retry behavior',
+				'User and analytics endpoints for platform visibility and reporting',
+				'OpenAPI schema artifacts committed for tooling, validation, and client exploration'
+			],
+			opsShowcase: [
+				'`run_load_test.sh` and the `load_tests/` suite for backend and websocket performance checks',
+				'Backup, restore, and backup-verification scripts in `scripts/`',
+				'Safe migration and blue-green deployment support scripts',
+				'Monitoring and disaster-recovery documentation for production-style operations'
 			],
 			systemTopics: [
 				'Idempotency design for write-heavy APIs',
@@ -501,13 +543,24 @@
 				<div class="mb-16 rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
 					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 						<div>
-							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Backend Assets Available</h2>
-							<div class="space-y-3">
-								{#each project.backendAssets as asset}
-									<div class="flex items-start gap-3">
-										<div class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500"></div>
-										<p class="text-gray-700 dark:text-gray-300">{asset}</p>
-									</div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Explore the Backend</h2>
+							<div class="grid grid-cols-1 gap-4">
+								{#each project.exploreLinks as link}
+									<a
+										href={link.url}
+										target="_blank"
+										class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors duration-200"
+									>
+										<div class="flex items-start justify-between gap-4">
+											<div>
+												<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">{link.title}</h3>
+												<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{link.description}</p>
+											</div>
+											<svg class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 4h6m0 0v6m0-6L10 14M5 8v11h11"></path>
+											</svg>
+										</div>
+									</a>
 								{/each}
 							</div>
 						</div>
@@ -520,6 +573,42 @@
 									</div>
 								{/each}
 							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Architecture Snapshot</h2>
+						<div class="space-y-3">
+							{#each project.architectureSummary as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">API Surface</h2>
+						<div class="space-y-3">
+							{#each project.apiShowcase as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Ops and Reliability</h2>
+						<div class="space-y-3">
+							{#each project.opsShowcase as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
 						</div>
 					</div>
 				</div>
