@@ -276,32 +276,32 @@
 				{
 					title: 'OpenAPI Guide',
 					description: 'Interactive Swagger, ReDoc, and raw `openapi.json` usage are documented for the REST API.',
-					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/docs/openapi-guide.md'
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/master/docs/openapi-guide.md'
 				},
 				{
 					title: 'ERD and Data Model',
 					description: 'Detailed schema notes covering both PostgreSQL tables and Neo4j graph structure.',
-					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/docs/erd.md'
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/master/docs/erd.md'
 				},
 				{
 					title: 'Docs Index',
 					description: 'Start from the documentation hub for architecture, API reference, GraphQL schema, deployment, and runbooks.',
-					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/docs/README.md'
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/master/docs/README.md'
 				},
 				{
 					title: 'Monitoring Setup',
 					description: 'Prometheus metrics, Grafana dashboards, and alerting configuration for platform observability.',
-					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/backend/monitoring/README.md'
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/master/backend/monitoring/README.md'
 				},
 				{
 					title: 'Seed and Sample Data',
 					description: 'Seed the platform for testing with `seed_data.py` and inspect the provided `sample_graph_data.json` asset.',
-					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/backend/scripts/seed_data.py'
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/master/backend/scripts/seed_data.py'
 				},
 				{
 					title: 'Deployment Tooling',
 					description: 'Health checks, restore flows, rollback support, and deployment scripts are part of the repo.',
-					url: 'https://github.com/horacenjoroge/AfricGraph/tree/main/deployment/scripts'
+					url: 'https://github.com/horacenjoroge/AfricGraph/tree/master/deployment/scripts'
 				}
 			],
 			architectureSummary: [
