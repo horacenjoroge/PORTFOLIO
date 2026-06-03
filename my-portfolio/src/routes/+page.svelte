@@ -85,7 +85,7 @@
 		{
 			id: '3',
 			title: 'AfricGraph',
-			description: 'Ontology-driven decision platform for SMEs. FastAPI backend, React frontend, and supporting services run via Docker Compose.',
+			description: 'Ontology-driven decision platform for SMEs shaped by lessons from Designing Data-Intensive Applications, especially around data modeling, distributed services, and resilient system design.',
 			tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Neo4j', 'PostgreSQL', 'Docker'],
 			github: 'https://github.com/horacenjoroge/AfricGraph',
 			demo: '/projects/3'
@@ -93,7 +93,7 @@
 		{
 			id: '4',
 			title: 'Distributed-Event-Log-Platform',
-			description: 'Production-ready distributed commit log system (Kafka/Pulsar-style) built from scratch, implementing principles from Designing Data-Intensive Applications.',
+			description: 'Kafka/Pulsar-style distributed commit log platform built from scratch as a hands-on deep dive into the ideas from Designing Data-Intensive Applications.',
 			tech: ['Python 3.10+', 'gRPC', 'Raft', 'asyncio', 'Docker'],
 			github: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			demo: '/projects/4'

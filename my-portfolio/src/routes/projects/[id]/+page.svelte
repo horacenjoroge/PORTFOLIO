@@ -175,8 +175,8 @@
 		},
 		'3': {
 			title: 'AfricGraph',
-			shortDescription: 'Ontology-driven decision platform for SMEs. FastAPI backend, React frontend, and supporting services run via Docker Compose.',
-			fullDescription: 'AfricGraph is an ontology-driven decision platform for small and medium enterprises. The system combines a FastAPI backend with a React frontend and runs a full stack of services via Docker Compose: Neo4j for graph data, PostgreSQL, Redis, RabbitMQ, and Elasticsearch. It supports ingestion jobs via Celery workers, JWT authentication, and configurable CORS. Backend and frontend can be run together with docker-compose up, with API at port 8000, frontend at 3000, Neo4j Browser at 7474, and RabbitMQ management at 15672.',
+			shortDescription: 'Ontology-driven decision platform for SMEs, built with lessons from Designing Data-Intensive Applications around data modeling, messaging, and multi-service system design.',
+			fullDescription: 'AfricGraph is an ontology-driven decision platform for small and medium enterprises. The system combines a FastAPI backend with a React frontend and runs a full service stack via Docker Compose: Neo4j for graph data, PostgreSQL, Redis, RabbitMQ, and Elasticsearch. It supports ingestion jobs through Celery workers, JWT authentication, and configurable CORS, with backend and frontend running alongside supporting infrastructure for a realistic distributed development environment. This project was strongly shaped by my reading of Martin Kleppmann\'s "Designing Data-Intensive Applications," especially the parts about choosing the right data model for the problem, coordinating multiple storage systems, and designing services that can move data reliably between queues, databases, and user-facing APIs.',
 			technologies: ['Python', 'FastAPI', 'React', 'TypeScript', 'Neo4j', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Elasticsearch', 'Docker', 'Celery', 'Cypher'],
 			features: [
 				'Ontology-driven data model for SME decision support',
@@ -194,13 +194,21 @@
 				'Running and debugging ingestion pipeline with Celery',
 				'Keeping Docker Compose and env config in sync across services'
 			],
+			bookInspiration: 'This project grew out of ideas from "Designing Data-Intensive Applications" by Martin Kleppmann, especially the tradeoffs around data models, asynchronous processing, and system boundaries.',
+			learnedTopics: [
+				'How graph databases and relational databases solve different access-pattern problems, and when to combine them in one system',
+				'How message brokers and worker queues help decouple ingestion, background processing, and user-facing request paths',
+				'How to think about consistency, indexing, and data flow when multiple stores such as Neo4j, PostgreSQL, Redis, and Elasticsearch coexist',
+				'How distributed application complexity shows up in deployment, configuration, health checks, and observability long before production scale'
+			],
 			github: 'https://github.com/horacenjoroge/AfricGraph',
 			liveDemo: 'https://drive.google.com/file/d/1l9r45Qt9V5K-Aw0JpQqb6Ll7ZQtcGZR-/view?usp=sharing',
 			highlights: [
 				'Ontology-driven platform for SME decisions',
 				'Full stack: FastAPI, React, Neo4j, PostgreSQL, Redis, RabbitMQ, Elasticsearch',
 				'Single-command run with Docker Compose',
-				'Celery-based ingestion pipeline with worker docs'
+				'Celery-based ingestion pipeline with worker docs',
+				'Built as a practical extension of lessons from Designing Data-Intensive Applications'
 			]
 		},
 		'4': {
@@ -224,13 +232,21 @@
 				'Designing zero-copy and async I/O for high throughput',
 				'Coordinating multi-broker metadata and partition assignment'
 			],
+			bookInspiration: 'This project was a direct result of reading "Designing Data-Intensive Applications" by Martin Kleppmann and then trying to implement the core ideas in a real distributed log system.',
+			learnedTopics: [
+				'How append-only logs, segment indexing, compaction, and retention policies work as the foundation of event-driven systems',
+				'How replication, leader election, ISR management, and consensus algorithms such as Raft shape fault-tolerant distributed systems',
+				'How exactly-once semantics, idempotent producers, and transactional workflows become much harder in real multi-broker environments',
+				'How batching, zero-copy I/O, async networking, and partitioning strategy affect throughput, latency, and operational behavior'
+			],
 			github: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			liveDemo: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			highlights: [
 				'Kafka/Pulsar-style distributed log built from scratch',
 				'Raft consensus and ISR replication implemented in Python',
 				'3x throughput and 10x concurrent connections with optimizations',
-				'38,120 lines across production code, tests, and docs'
+				'38,120 lines across production code, tests, and docs',
+				'A hands-on implementation of concepts studied in Designing Data-Intensive Applications'
 			]
 		}
 	};
@@ -459,6 +475,15 @@
 							</div>
 						</div>
 					{/if}
+
+					{#if project.bookInspiration}
+						<div class="mt-8 rounded-2xl bg-blue-50 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-900/70 p-5">
+							<h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Book Influence</h3>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								{project.bookInspiration}
+							</p>
+						</div>
+					{/if}
 				</div>
 
 				<!-- Features & Challenges -->
@@ -492,6 +517,22 @@
 							{/each}
 						</ul>
 					</div>
+
+					{#if project.learnedTopics}
+						<div>
+							<h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">What I Learned</h3>
+							<ul class="space-y-2">
+								{#each project.learnedTopics as topic}
+									<li class="flex items-start">
+										<svg class="w-5 h-5 text-blue-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+											<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v4a1 1 0 102 0V7zm-1 8a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" clip-rule="evenodd"></path>
+										</svg>
+										<span class="text-gray-700 dark:text-gray-300">{topic}</span>
+									</li>
+								{/each}
+							</ul>
+						</div>
+					{/if}
 				</div>
 			</div>
 
