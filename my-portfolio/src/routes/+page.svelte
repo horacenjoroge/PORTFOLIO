@@ -93,7 +93,7 @@
 		{
 			id: '4',
 			title: 'Distributed-Event-Log-Platform',
-			description: 'Kafka/Pulsar-style distributed commit log platform built from scratch as a hands-on deep dive into the ideas from Designing Data-Intensive Applications.',
+			description: 'Kafka/Pulsar-style distributed log system with runnable demos, benchmarks, monitoring, storage internals docs, and deep distributed-systems writeups inspired by Designing Data-Intensive Applications.',
 			tech: ['Python 3.10+', 'gRPC', 'Raft', 'asyncio', 'Docker'],
 			github: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			demo: '/projects/4'

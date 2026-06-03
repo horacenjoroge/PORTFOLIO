@@ -368,6 +368,64 @@
 				'How exactly-once semantics, idempotent producers, and transactional workflows become much harder in real multi-broker environments',
 				'How batching, zero-copy I/O, async networking, and partitioning strategy affect throughput, latency, and operational behavior'
 			],
+			exploreLinks: [
+				{
+					title: 'README and Quick Start',
+					description: 'Start with the full feature set, architecture summary, setup instructions, and runnable examples.',
+					url: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform/blob/main/README.md'
+				},
+				{
+					title: 'Log Storage Internals',
+					description: 'Dive into append-only segments, crash recovery, fsync tradeoffs, and storage behavior.',
+					url: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform/blob/main/docs/LOG_STORAGE.md'
+				},
+				{
+					title: 'Offset Index Design',
+					description: 'See how sparse indexing and mmap-backed lookup achieve fast random reads.',
+					url: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform/blob/main/docs/OFFSET_INDEX.md'
+				},
+				{
+					title: 'Producer and Consumer Docs',
+					description: 'Explore client behavior, batching, offsets, and consumption semantics through dedicated docs.',
+					url: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform/tree/main/docs'
+				},
+				{
+					title: 'Examples and Demo Scripts',
+					description: 'Run the simple demo or producer/consumer examples to exercise the system without building a UI.',
+					url: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform/tree/main/examples'
+				},
+				{
+					title: 'Project Status and Interview Notes',
+					description: 'Review the implementation timeline, completed tasks, and extensive technical interview explanations.',
+					url: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform/blob/main/PROJECT_STATUS.md'
+				}
+			],
+			architectureSummary: [
+				'Producer and consumer clients communicate with a multi-broker cluster over gRPC',
+				'Brokers coordinate replication, ISR management, partition leadership, and metadata propagation',
+				'Raft-backed controller logic handles leader election and distributed state changes',
+				'Storage is built on append-only log segments plus sparse offset indexes for fast recovery and lookup',
+				'Monitoring surfaces are wired through Prometheus and Grafana assets in the Docker stack'
+			],
+			apiShowcase: [
+				'Runnable producer and consumer examples demonstrate the system without needing a frontend',
+				'Protocol definitions and RPC surfaces are committed in protobuf files under the protocol layer',
+				'Dedicated docs explain producer behavior, consumer groups, log storage, log manager internals, and offset indexing',
+				'Transactional and idempotent producer usage is documented directly in the README'
+			],
+			opsShowcase: [
+				'Docker Compose includes Prometheus and Grafana for metrics and observability',
+				'Benchmarks and performance characteristics are documented and partially automated',
+				'Proto-generation helper scripts and Makefile targets improve development ergonomics',
+				'The repo includes extensive tests across broker, consensus, transactions, producer, consumer, and storage layers'
+			],
+			availabilityNotes: [
+				'This project does not need Swagger or a typical web API story because the main showcase is the distributed system itself, its examples, and its protocol/docs',
+				'Runnable demos are clearly available through `examples/simple_demo.py`, `producer_example.py`, and `consumer_example.py`',
+				'Deep implementation docs already exist for storage, indexing, and client behavior, which makes the portfolio page stronger than a plain summary',
+				'Prometheus and Grafana assets are committed in the Docker setup, so observability is part of the story rather than an afterthought',
+				'Benchmarks, tests, and technical writeups are available, giving reviewers multiple ways to validate the engineering depth'
+			],
 			github: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			liveDemo: 'https://github.com/horacenjoroge/Distributed-Event-Log-Platform',
 			highlights: [
@@ -776,6 +834,110 @@
 				</div>
 
 				<div class="mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What Is Ready To Showcase</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{#each project.availabilityNotes as note}
+							<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5">
+								<p class="text-gray-700 dark:text-gray-300 leading-relaxed">{note}</p>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			{#if projectId === '4'}
+				<div class="mb-16 grid grid-cols-1 md:grid-cols-3 gap-4">
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-2">Core System</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Distributed Commit Log</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">A from-scratch Kafka/Pulsar-style system, not just a wrapper around existing infrastructure.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400 mb-2">Proof of Depth</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Docs + Benchmarks</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Storage internals, offset indexes, benchmarks, replication, and transactions are all explained in the repo.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-orange-600 dark:text-orange-400 mb-2">Operations</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Observable Cluster</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Prometheus, Grafana, tests, and Dockerized cluster setup make the system inspectable beyond source code alone.</p>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Explore the Backend</h2>
+							<div class="grid grid-cols-1 gap-4">
+								{#each project.exploreLinks as link}
+									<a
+										href={link.url}
+										target="_blank"
+										class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors duration-200"
+									>
+										<div class="flex items-start justify-between gap-4">
+											<div>
+												<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">{link.title}</h3>
+												<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{link.description}</p>
+											</div>
+											<svg class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 4h6m0 0v6m0-6L10 14M5 8v11h11"></path>
+											</svg>
+										</div>
+									</a>
+								{/each}
+							</div>
+						</div>
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">What I Learned</h2>
+							<div class="space-y-4">
+								{#each project.learnedTopics as topic}
+									<div class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4">
+										<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{topic}</p>
+									</div>
+								{/each}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Architecture Snapshot</h2>
+						<div class="space-y-3">
+							{#each project.architectureSummary as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Interface and Examples</h2>
+						<div class="space-y-3">
+							{#each project.apiShowcase as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Ops and Reliability</h2>
+						<div class="space-y-3">
+							{#each project.opsShowcase as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-amber-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
 					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What Is Ready To Showcase</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 						{#each project.availabilityNotes as note}
