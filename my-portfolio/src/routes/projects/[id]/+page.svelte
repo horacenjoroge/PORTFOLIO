@@ -246,8 +246,8 @@
 		},
 		'3': {
 			title: 'AfricGraph',
-			shortDescription: 'Ontology-driven decision platform for SMEs, built with lessons from Designing Data-Intensive Applications around data modeling, messaging, and multi-service system design.',
-			fullDescription: 'AfricGraph is an ontology-driven decision platform for small and medium enterprises. The system combines a FastAPI backend with a React frontend and runs a full service stack via Docker Compose: Neo4j for graph data, PostgreSQL, Redis, RabbitMQ, and Elasticsearch. It supports ingestion jobs through Celery workers, JWT authentication, and configurable CORS, with backend and frontend running alongside supporting infrastructure for a realistic distributed development environment. This project was strongly shaped by my reading of Martin Kleppmann\'s "Designing Data-Intensive Applications," especially the parts about choosing the right data model for the problem, coordinating multiple storage systems, and designing services that can move data reliably between queues, databases, and user-facing APIs.',
+			shortDescription: 'Ontology-driven SME intelligence platform with graph-first modeling, documented REST and GraphQL surfaces, monitoring assets, seed data, and deployment tooling shaped by Designing Data-Intensive Applications.',
+			fullDescription: 'AfricGraph is an ontology-driven decision platform for small and medium enterprises that models businesses, people, suppliers, customers, payments, invoices, and transactions as a knowledge graph. The system combines a FastAPI backend with a React frontend and runs a full service stack through Docker Compose: Neo4j for graph relationships, PostgreSQL for metadata and workflow state, Redis and RabbitMQ for supporting infrastructure, Celery workers for ingestion jobs, Elasticsearch for search, and monitoring assets for observability. The repo also includes interactive API documentation, GraphQL schema support, ERD documentation spanning both relational and graph structures, deployment runbooks, health checks, Prometheus and Grafana monitoring configuration, plus seed and sample data for realistic testing. This project was strongly shaped by my reading of Martin Kleppmann\'s "Designing Data-Intensive Applications," especially the parts about choosing the right data model for the problem, coordinating multiple storage systems, and designing services that move data reliably between queues, databases, search, and graph stores.',
 			technologies: ['Python', 'FastAPI', 'React', 'TypeScript', 'Neo4j', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Elasticsearch', 'Docker', 'Celery', 'Cypher'],
 			features: [
 				'Ontology-driven data model for SME decision support',
@@ -271,6 +271,64 @@
 				'How message brokers and worker queues help decouple ingestion, background processing, and user-facing request paths',
 				'How to think about consistency, indexing, and data flow when multiple stores such as Neo4j, PostgreSQL, Redis, and Elasticsearch coexist',
 				'How distributed application complexity shows up in deployment, configuration, health checks, and observability long before production scale'
+			],
+			exploreLinks: [
+				{
+					title: 'OpenAPI Guide',
+					description: 'Interactive Swagger, ReDoc, and raw `openapi.json` usage are documented for the REST API.',
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/docs/openapi-guide.md'
+				},
+				{
+					title: 'ERD and Data Model',
+					description: 'Detailed schema notes covering both PostgreSQL tables and Neo4j graph structure.',
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/docs/erd.md'
+				},
+				{
+					title: 'Docs Index',
+					description: 'Start from the documentation hub for architecture, API reference, GraphQL schema, deployment, and runbooks.',
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/docs/README.md'
+				},
+				{
+					title: 'Monitoring Setup',
+					description: 'Prometheus metrics, Grafana dashboards, and alerting configuration for platform observability.',
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/backend/monitoring/README.md'
+				},
+				{
+					title: 'Seed and Sample Data',
+					description: 'Seed the platform for testing with `seed_data.py` and inspect the provided `sample_graph_data.json` asset.',
+					url: 'https://github.com/horacenjoroge/AfricGraph/blob/main/backend/scripts/seed_data.py'
+				},
+				{
+					title: 'Deployment Tooling',
+					description: 'Health checks, restore flows, rollback support, and deployment scripts are part of the repo.',
+					url: 'https://github.com/horacenjoroge/AfricGraph/tree/main/deployment/scripts'
+				}
+			],
+			architectureSummary: [
+				'FastAPI backend and React frontend running alongside Neo4j, PostgreSQL, Redis, RabbitMQ, Elasticsearch, and Celery workers',
+				'Graph-first domain model for entity relationships, supported by PostgreSQL for metadata, workflow state, and audit data',
+				'Interactive REST docs at `/docs` and `/redoc`, plus GraphQL exploration through `/graphql`',
+				'Health and metrics endpoints exposed for platform visibility, with Prometheus and Grafana assets committed in the repo',
+				'Deployment scripts and Docker Compose setup designed to make the full multi-service platform reproducible locally'
+			],
+			apiShowcase: [
+				'Swagger UI at `/docs`, ReDoc at `/redoc`, and raw OpenAPI schema at `/openapi.json`',
+				'GraphQL schema and explorer support for graph-oriented access patterns',
+				'REST endpoint groups covering businesses, risk, fraud, graph operations, search, workflows, backup, and auth',
+				'Client-generation workflows documented through the OpenAPI guide'
+			],
+			opsShowcase: [
+				'Prometheus metrics at `/metrics` with Grafana dashboards and alert definitions committed in the repo',
+				'Health-check scripts spanning backend, frontend, PostgreSQL, Neo4j, Redis, and Elasticsearch',
+				'Deployment helper scripts for deploy, update, rollback, and restore workflows',
+				'Monitoring and recovery documentation in `backend/monitoring/README.md`, `deployment/README.md`, and disaster-recovery assets'
+			],
+			availabilityNotes: [
+				'Interactive API documentation is clearly available through Swagger, ReDoc, and raw OpenAPI endpoints',
+				'The repo documents both REST and GraphQL surfaces, which makes the backend story richer than a single API style',
+				'Seed/sample data are genuinely present through `backend/scripts/seed_data.py` and `sample_graph_data.json`',
+				'Monitoring assets are already committed, including Prometheus config, Grafana dashboards, and alert definitions',
+				'ERD and ontology-oriented documentation already exist, so the portfolio can confidently point to real system-design artifacts instead of vague claims'
 			],
 			github: 'https://github.com/horacenjoroge/AfricGraph',
 			liveDemo: 'https://drive.google.com/file/d/1l9r45Qt9V5K-Aw0JpQqb6Ll7ZQtcGZR-/view?usp=sharing',
@@ -614,6 +672,110 @@
 				</div>
 
 				<div class="mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What Is Ready To Showcase</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{#each project.availabilityNotes as note}
+							<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5">
+								<p class="text-gray-700 dark:text-gray-300 leading-relaxed">{note}</p>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			{#if projectId === '3'}
+				<div class="mb-16 grid grid-cols-1 md:grid-cols-3 gap-4">
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-2">Data Model</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Graph + Relational</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Neo4j handles relationship-heavy intelligence while PostgreSQL carries metadata, audit, and workflow state.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400 mb-2">Backend Surface</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">REST + GraphQL</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Swagger, ReDoc, GraphQL schema support, and client-generation docs are all part of the project surface.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-orange-600 dark:text-orange-400 mb-2">Operations</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Observable and Runnable</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Health checks, metrics, dashboards, deployment scripts, and recovery assets make the system demonstrably operational.</p>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Explore the Backend</h2>
+							<div class="grid grid-cols-1 gap-4">
+								{#each project.exploreLinks as link}
+									<a
+										href={link.url}
+										target="_blank"
+										class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors duration-200"
+									>
+										<div class="flex items-start justify-between gap-4">
+											<div>
+												<h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">{link.title}</h3>
+												<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{link.description}</p>
+											</div>
+											<svg class="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 4h6m0 0v6m0-6L10 14M5 8v11h11"></path>
+											</svg>
+										</div>
+									</a>
+								{/each}
+							</div>
+						</div>
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">What I Learned</h2>
+							<div class="space-y-4">
+								{#each project.learnedTopics as topic}
+									<div class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4">
+										<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{topic}</p>
+									</div>
+								{/each}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Architecture Snapshot</h2>
+						<div class="space-y-3">
+							{#each project.architectureSummary as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">API Surface</h2>
+						<div class="space-y-3">
+							{#each project.apiShowcase as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+					<div class="rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+						<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-5">Ops and Reliability</h2>
+						<div class="space-y-3">
+							{#each project.opsShowcase as item}
+								<div class="flex items-start gap-3">
+									<div class="mt-1 h-2.5 w-2.5 rounded-full bg-orange-500"></div>
+									<p class="text-gray-700 dark:text-gray-300">{item}</p>
+								</div>
+							{/each}
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
 					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What Is Ready To Showcase</h2>
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 						{#each project.availabilityNotes as note}

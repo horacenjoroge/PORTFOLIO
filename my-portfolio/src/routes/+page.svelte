@@ -85,8 +85,8 @@
 		{
 			id: '3',
 			title: 'AfricGraph',
-			description: 'Ontology-driven decision platform for SMEs shaped by lessons from Designing Data-Intensive Applications, especially around data modeling, distributed services, and resilient system design.',
-			tech: ['Python', 'FastAPI', 'React', 'TypeScript', 'Neo4j', 'PostgreSQL', 'Docker'],
+			description: 'Graph-first SME intelligence platform with documented APIs, ERD and ontology docs, monitoring assets, seed data, and deployment tooling shaped by Designing Data-Intensive Applications.',
+			tech: ['FastAPI', 'React', 'Neo4j', 'PostgreSQL', 'RabbitMQ', 'Celery', 'Docker'],
 			github: 'https://github.com/horacenjoroge/AfricGraph',
 			demo: '/projects/3'
 		},
