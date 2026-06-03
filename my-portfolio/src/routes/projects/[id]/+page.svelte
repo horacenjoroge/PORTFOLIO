@@ -151,26 +151,55 @@
 		},
 		'2': {
 			title: 'Provote',
-			shortDescription: 'Voting and polling platform for secure, transparent decisions and community engagement.',
-			fullDescription: 'Provote is a voting and polling platform designed for secure, transparent decisions and community engagement. Users can create and participate in polls and votes with clear results and auditability. The project provides a modern stack for building and running voting flows with a focus on reliability and user experience.',
-			technologies: ['Node.js', 'TypeScript', 'React', 'PostgreSQL'],
+			shortDescription: 'A backend-heavy voting platform with idempotent vote handling, API documentation, architecture diagrams, load testing, and production-oriented operations tooling.',
+			fullDescription: 'Provote is a professional Django-based voting platform built around reliable vote handling, auditability, and operational readiness. The project exposes a REST API for polls, votes, users, and analytics; documents its surface with OpenAPI artifacts and extended API docs; and backs the platform with PostgreSQL, Redis, Celery, Docker, and Nginx. Beyond CRUD functionality, the repo shows serious backend engineering work: idempotent voting operations, real-time analytics, load testing, disaster recovery and backup scripts, security notes, monitoring setup, and comprehensive architecture documentation with Mermaid diagrams. It is a strong example of how to present a backend-first system even when the frontend is not the main story.',
+			technologies: ['Python 3.11', 'Django 5', 'Django REST Framework', 'PostgreSQL 15', 'Redis 7', 'Celery', 'Gunicorn', 'Nginx', 'drf-spectacular', 'Docker Compose'],
 			features: [
-				'Create and manage polls and votes',
-				'Secure, transparent voting and result visibility',
-				'Community engagement and participation flows',
-				'Modern web stack with TypeScript and React'
+				'REST API for polls, votes, users, analytics, and related platform workflows',
+				'Idempotent voting operations designed to prevent duplicate votes under retries and concurrency',
+				'Published OpenAPI artifacts via `schema.json` and `schema.yml`, plus extended API documentation',
+				'Insomnia collection for testing endpoints without building a custom frontend client',
+				'Load-testing suite and supporting scripts for voting, websocket, and performance verification',
+				'Operational scripts for backups, restore flows, safe migrations, and blue-green deployment support',
+				'Comprehensive architecture and ERD documentation with Mermaid diagrams',
+				'Docker-based environment with PostgreSQL, Redis, Celery, Gunicorn, and Nginx'
 			],
 			challenges: [
-				'Ensuring vote integrity and preventing tampering',
-				'Designing clear UX for creating and viewing polls',
-				'Scaling for concurrent voters and real-time results'
+				'Designing vote creation so retries and concurrent requests remain safe and idempotent',
+				'Coordinating database, cache, workers, and real-time infrastructure around a consistent voting workflow',
+				'Documenting the system thoroughly enough that technical reviewers can understand architecture without a dedicated frontend demo',
+				'Preparing the platform for operational concerns such as backup, restore, deployment, and monitoring'
+			],
+			backendAssets: [
+				'OpenAPI schema artifacts committed as `schema.json` and `schema.yml`',
+				'Insomnia API collection committed as `provote-insomnia-collection.json`',
+				'API reference in `docs/api.md`',
+				'Architecture documentation with Mermaid diagrams in `docs/architecture-comprehensive.md`',
+				'Database ERD and schema design notes in `docs/database-erd-design.md`',
+				'Load tests in `load_tests/` plus helper scripts such as `run_load_test.sh`',
+				'Ops scripts in `scripts/` for backup, restore, migration safety, and deployment support'
+			],
+			systemTopics: [
+				'Idempotency design for write-heavy APIs',
+				'Concurrency control and safe retry handling',
+				'Caching and background processing with Redis and Celery',
+				'Real-time update architecture and websocket scaling',
+				'Operational readiness through monitoring, recovery, and scripted workflows'
+			],
+			availabilityNotes: [
+				'Swagger/OpenAPI artifacts are clearly available in the repo through `schema.json` and `schema.yml`',
+				'An importable API client collection is available through the Insomnia export',
+				'Mermaid diagrams are already written in the architecture documentation and can be surfaced in the portfolio narrative',
+				'Load-test and operations scripts are available for demonstration of reliability and deployment maturity',
+				'A dedicated seed-data or demo-data workflow was not obvious from the current repo surface, so the portfolio should avoid claiming it exists until we verify or add it'
 			],
 			github: 'https://github.com/horacenjoroge/provote',
 			liveDemo: 'https://drive.google.com/file/d/1mVBfaW64q_juza02aIm0Y76ifX-jl38j/view?usp=sharing',
 			highlights: [
-				'Voting and polling platform for transparent decisions',
-				'Secure, auditable results and community engagement',
-				'TypeScript and React frontend with Node.js backend'
+				'Strong backend showcase built around documented APIs, architecture diagrams, and operational tooling',
+				'Idempotent vote handling and load testing make the system story stronger than a simple CRUD demo',
+				'OpenAPI schema, Insomnia collection, and backend docs make the project explorable without a full custom frontend',
+				'Production-minded setup with Docker, Redis, Celery, monitoring notes, and deployment scripts'
 			]
 		},
 		'3': {
@@ -444,6 +473,63 @@
 						{#each project.devWorkflow as step}
 							<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5">
 								<p class="text-gray-700 dark:text-gray-300 leading-relaxed">{step}</p>
+							</div>
+						{/each}
+					</div>
+				</div>
+			{/if}
+
+			{#if projectId === '2'}
+				<div class="mb-16 grid grid-cols-1 md:grid-cols-3 gap-4">
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 mb-2">API Surface</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Documented Backend</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">OpenAPI schema files, API docs, and an Insomnia collection are already present in the repo.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400 mb-2">System Design</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Explained in Depth</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Architecture, ERD, API flows, and idempotency behavior are written out in long-form docs with Mermaid diagrams.</p>
+					</div>
+					<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-lg">
+						<p class="text-sm uppercase tracking-[0.2em] text-orange-600 dark:text-orange-400 mb-2">Ops Readiness</p>
+						<h3 class="text-xl font-semibold text-gray-900 dark:text-white">Beyond CRUD</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Load tests, backup scripts, restore workflows, and deployment helpers make the backend story much stronger.</p>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Backend Assets Available</h2>
+							<div class="space-y-3">
+								{#each project.backendAssets as asset}
+									<div class="flex items-start gap-3">
+										<div class="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500"></div>
+										<p class="text-gray-700 dark:text-gray-300">{asset}</p>
+									</div>
+								{/each}
+							</div>
+						</div>
+						<div>
+							<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Core Systems Topics</h2>
+							<div class="space-y-4">
+								{#each project.systemTopics as topic}
+									<div class="rounded-2xl bg-slate-50 dark:bg-gray-900/60 border border-slate-200 dark:border-gray-700 p-4">
+										<p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{topic}</p>
+									</div>
+								{/each}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mb-16 rounded-3xl bg-gradient-to-br from-slate-100 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-slate-900 border border-gray-200/60 dark:border-gray-700/60 p-8 shadow-xl">
+					<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What Is Ready To Showcase</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{#each project.availabilityNotes as note}
+							<div class="rounded-2xl bg-white/80 dark:bg-gray-800/80 border border-gray-200/60 dark:border-gray-700/60 p-5">
+								<p class="text-gray-700 dark:text-gray-300 leading-relaxed">{note}</p>
 							</div>
 						{/each}
 					</div>

@@ -77,8 +77,8 @@
 		{
 			id: '2',
 			title: 'Provote',
-			description: 'Voting and polling platform for secure, transparent decisions and community engagement.',
-			tech: ['Node.js', 'TypeScript', 'React', 'PostgreSQL'],
+			description: 'A backend-focused voting platform with idempotent vote handling, documented APIs, architecture diagrams, load tests, and production-style operations tooling.',
+			tech: ['Django', 'Django REST Framework', 'PostgreSQL', 'Redis', 'Celery', 'Docker'],
 			github: 'https://github.com/horacenjoroge/provote',
 			demo: '/projects/2'
 		},
